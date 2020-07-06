@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 14</title>
+</head>
+<body>
+    <h1>Mountains</h1>
+
+    <div id="mountains"></div>
+
+    <script>
+    const MOUNTAINS = [
+        {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+        {name: "Everest", height: 8848, place: "Nepal"},
+        {name: "Mount Fuji", height: 3776, place: "Japan"},
+        {name: "Vaalserberg", height: 323, place: "Netherlands"},
+        {name: "Denali", height: 6168, place: "United States"},
+        {name: "Popocatepetl", height: 5465, place: "Mexico"},
+        {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+    ];
+        let mountainsTable = document.getElementById("mountains");
+        
+        const generateTable = (table) =>{
+            let newTable = document.createElement("table");
+            generateColumns(table);
+            generateRows(table)
+        };
+
+
+        const generateColumns = (table) =>{
+            let row = document.createElement('tr');
+            for(let key of Object.keys(MOUNTAINS[0])){
+                let header = document.createElement('th');
+                header.textContent = key;
+                table.appendChild(row);
+                table.firstChild.appendChild(header);
+            }
+        }
+
+        const generateRows = (table) =>{
+            for(let object of MOUNTAINS){
+                let row = document.createElement('tr');
+                for(let value of Object.values(object)){
+                    let name = document.createElement('td');
+                    name.textContent = value;
+                    row.appendChild(name);
+                    if(typeof(value) == "number"){
+                        name.style.textAlign = "right";
+                        
+                    }
+                    table.appendChild(row);
+
+                }
+            }
+        }
+
+        
+
+        generateTable(mountainsTable);
+
+    
+    </script>
+</body>
+</html>
