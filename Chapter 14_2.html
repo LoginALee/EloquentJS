@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 14</title>
+</head>
+<body>
+    <h1>Heading with a <span>span</span> element.</h1>
+    <p>A paragraph with <span>one</span>, <span>two</span>
+    spans.</p>
+
+    <script>
+        function byTagName(node, tagName) {
+          let array = [];
+          let elements = node.querySelectorAll(tagName);
+          for(let element of elements){
+              array.push(element);
+          }
+          return array;
+        }
+      
+        console.log(byTagName(document.body, "h1").length);
+        // → 1
+        console.log(byTagName(document.body, "span").length);
+        // → 3
+        let para = document.querySelector("p");
+        console.log(byTagName(para, "span").length);
+        // → 2
+      </script>
+</body>
+</html>
