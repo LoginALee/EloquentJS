@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5</title>
+</head>
+<body>
+    <p id="balloon">🎈</p>
+
+    <script>
+        let balloon = document.getElementById('balloon');
+        let air = 16;
+        document.body.addEventListener("keydown", event =>{
+            event.preventDefault();
+            
+            if(air >= 50){
+                balloon.textContent = "💥";
+                document.body.removeEventListener("keydown", arguments.callee);
+            }
+
+            if(event.key == "ArrowUp"){
+                air += 10;
+                balloon.style.fontSize = air + "px";
+            }
+            else if(event.key == "ArrowDown"){
+                air -= 10;
+                balloon.style.fontSize = air + "px";
+            }
+
+        });
+
+        
+
+    </script>
+</body>
+</html>
