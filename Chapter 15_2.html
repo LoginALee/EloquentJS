@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5</title>
+</head>
+<body>
+    <style>
+        .trail { /* className for the trail elements */
+          position: absolute;
+          height: 6px; width: 6px;
+          border-radius: 3px;
+          background: teal;
+        }
+        body {
+          height: 300px;
+        }
+      </style>
+      
+      <script>
+        window.addEventListener("mousemove", event =>{
+            let trail = document.createElement("div");
+            trail.className = "trail";
+            trail.style.left = (event.pageX - 4) + "px";
+            trail.style.top = (event.pageY - 4) + "px";
+            document.body.appendChild(trail);
+        });
+      </script>
+</body>
+</html>
