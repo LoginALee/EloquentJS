@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter 15</title>
+    <style>
+        .selected{
+            color:red;
+            background-color: black;
+        }
+    </style>
 </head>
 <body>
     <tab-panel>
@@ -13,9 +19,30 @@
       </tab-panel>
       <script>
         function asTabs(node) {
-          // Your code here.
+        let tabs = Array.from(node.children).map(node => {
+        let button = document.createElement("button");
+        button.textContent = node.getAttribute("data-tabname");
+        let tab = {node, button};
+        button.addEventListener("click", () => selectTab(tab));
+        return tab;
+        });
+
+        let tabList = document.createElement("div");
+        for (let {button} of tabs) tabList.appendChild(button);
+        node.insertBefore(tabList, node.firstChild);
+
+        function selectTab(selectedTab) {
+        for (let tab of tabs) {
+            let selected = tab == selectedTab;
+            tab.node.style.display = selected ? "" : "none";
+            tab.button.style.color = selected ? "red" : "";
         }
-        asTabs(document.querySelector("tab-panel"));
+        }
+        selectTab(tabs[0]);
+    }
+
+    asTabs(document.querySelector("tab-panel"));
+        
       </script>
 </body>
 </html>
