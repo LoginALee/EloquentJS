@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 18</title>
+</head>
+<body>
+    <textarea name="JSWorkbench" id="JSWB" cols="30" rows="10"></textarea>
+    <button id="Run">Run</button>
+    <pre id="output"></pre>
+
+    <script>
+       let workBench = document.querySelector('#JSWB');
+       let runButton = document.querySelector('#Run');
+       let errorOutput = document.querySelector('#output');
+
+       runButton.addEventListener("click", event =>{
+           try{
+                let text = workBench.value;
+                const newfunc = Function(text);
+                newfunc();
+           }catch(e){
+               errorOutput.textContent = e.toString();
+           }
+       });
+    </script>
+</body>
+</html>
