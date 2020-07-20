@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 18</title>
+</head>
+<body>
+    <script>
+        //fetch Accepts plain text
+       fetch("https://eloquentjavascript.net/author", {headers: {Accept:"text/plain"}})
+            .then(response =>{
+                return response.text()
+            })
+            .then(content =>{
+  				console.log(content)}
+  			);
+        //fetch Accepts HTML
+       fetch("https://eloquentjavascript.net/author", {headers: {Accept:"text/html"}})
+            .then(response =>{
+                return response.text()
+            })
+            .then(content =>{
+  				console.log(content)}
+  			);
+        //fetch Accepts JSON
+       fetch("https://eloquentjavascript.net/author", {headers: {Accept:"application/json"}})
+            .then(response =>{
+                return response.json()
+            })
+            .then(content =>{
+  				console.log(content)}
+  			);
+    </script>
+</body>
+</html>
