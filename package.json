@@ -1,0 +1,23 @@
+{
+  "name": "eloquent-js",
+  "version": "1.0.0",
+  "description": "Testing",
+  "main": "11_async.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoginALee/EloquentJS.git"
+  },
+  "author": "LoginALee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LoginALee/EloquentJS/issues"
+  },
+  "homepage": "https://github.com/LoginALee/EloquentJS#readme",
+  "dependencies": {
+    "ini": "^1.3.5",
+    "mime": "^2.2.0"
+  }
+}
